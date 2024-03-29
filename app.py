@@ -6,10 +6,10 @@ from sklearn.preprocessing import LabelEncoder
 import pickle
 import joblib
 app = Flask(__name__,static_folder='static')
-loaded_label_encoder = joblib.load('encoder.pkl')
+loaded_label_encoder = joblib.load('lebelencoder.pkl')
 @app.route('/')
 def home():
-    return render_template('home.html')
+    return render_template('page.html')
 @app.route('/predict', methods=['POST'])
 def predict():
     if request.method == 'POST':
@@ -19,13 +19,13 @@ def predict():
         mfccs_scaled_features = np.mean(mfccs_features.T, axis=0)
         mfccs_scaled_features = mfccs_scaled_features.reshape(1, -1)
 
-        model = load_model('model.h5', compile=False)
+        model = load_model('my_model.h5', compile=False)
         x_predict = model.predict(mfccs_scaled_features)
         predicted_label = np.argmax(x_predict, axis=1)
         prediction_class = loaded_label_encoder.inverse_transform(predicted_label)
 
 
-        return render_template('home.html', prediction_text='Predicted class: {}'.format(prediction_class))
+        return render_template('page.html', prediction_text='Predicted class: {}'.format(prediction_class))
 
 if __name__ == '__main__':
     app.run(debug=True)
