@@ -8,7 +8,7 @@ body {
 
 /* Apply styles to the background */
 .background {
-    background-image: url('./audio_image.jpg');
+    background-image: url('./sound.jpg');
     background-size: cover;
     background-position: center;
     background-color: #f2f2f2;
@@ -22,11 +22,11 @@ body {
 .container {
     max-width: 800px;
     padding: 20px;
-    background: linear-gradient(to right, #686463, #a6a2a2);
+    background: linear-gradient(to right, #c22d08, #6642dc);
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     text-align: center;
-    color: white;
+    color: rgb(8, 5, 88);
 }
 
 
@@ -67,7 +67,7 @@ select {
 .upload-btn {
     padding: 10px 20px;
     background-color: #27ae60;
-    color: white;
+    color: rgb(228, 228, 225);
     border: none;
     border-radius: 5px;
     cursor: pointer;
